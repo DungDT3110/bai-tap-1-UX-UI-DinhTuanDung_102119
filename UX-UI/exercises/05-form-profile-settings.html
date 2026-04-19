@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise 05 - Profile Settings</title>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css"/>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body id="page-settings">
+    <header class="settings-header">
+      <h1><i class="ph-bold ph-gear-six"></i> Cài đặt tài khoản</h1>
+      
+      <div class="user-profile">
+        <img src="https://scontent.fhan2-3.fna.fbcdn.net/v/t39.30808-1/655966615_1891647391470286_4694299735417657031_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=108&ccb=1-7&_nc_sid=e99d92&_nc_ohc=1oc7o23gedAQ7kNvwEHFjwE&_nc_oc=AdpbZxzZh1zHpoOubn6KLPfmwEmEsS75k62nMtoEeQszcPfnOPYfGZ0N3NnGWrkBZXHRiCnGoXEW_X4SCnTr5oMD&_nc_zt=24&_nc_ht=scontent.fhan2-3.fna&_nc_gid=_bbxiNl2tNke94FQ9NkXYg&_nc_ss=7a3a8&oh=00_Af1A842ZyGwaFh3bdKIIJ2l5IPGcvbUjursmGyiFg80cWg&oe=69EAF3F6" alt="Avatar">
+        <div class="user-info">
+          <p class="name">Đinh Tuấn Dũng</p>
+          <p class="email">dungdt311025@email.com</p>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <form class="settings-form">
+        <section>
+          <h2><i class="ph-bold ph-user-circle"></i> Thông tin cá nhân</h2>
+          <label for="fullName">Họ và tên</label>
+          <input id="fullName" type="text" value="Đinh Tuấn Dũng" />
+
+          <label for="email">Email</label>
+          <input id="email" type="email" value="dungdt311025@email.com" />
+
+          <label for="language">Ngôn ngữ</label>
+          <select id="language">
+            <option>Tiếng Việt</option>
+            <option>English</option>
+            <option>bala blo</option>
+          </select>
+        </section>
+
+        <section>
+          <h2><i class="ph-bold ph-sliders-horizontal"></i> Tùy chọn ứng dụng</h2>
+          
+          <div class="toggle-group">
+            <label class="toggle-label">
+              <span>Thông báo qua Email</span>
+              <input type="checkbox" checked />
+            </label>
+            <label class="toggle-label">
+              <span>Nhận tin tức cập nhật</span>
+              <input type="checkbox" />
+            </label>
+          </div>
+
+          <label for="theme" style="margin-top: 16px;">Giao diện (Theme)</label>
+          <select id="theme">
+            <option>Sáng (Light)</option>
+            <option>Tối (Dark)</option>
+            <option>Hệ thống (System)</option>
+          </select>
+        </section>
+
+        <section>
+          <h2><i class="ph-bold ph-shield-check"></i> Bảo mật</h2>
+          <div class="btn-group-vertical">
+            <button type="button" class="btn-outline">Đổi mật khẩu</button>
+            <button type="button" class="btn-outline">Bật xác thực 2 bước (2FA)</button>
+          </div>
+        </section>
+
+        <section class="form-actions">
+          <button type="button" class="btn-secondary">Hủy bỏ</button>
+          <button type="submit" class="btn-primary">Lưu thay đổi</button>
+        </section>
+      </form>
+    </main>
+  </body>
+</html>
