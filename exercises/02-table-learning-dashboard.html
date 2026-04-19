@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise 02 - Tablet Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css"/>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body id="page-dashboard">
+    <header>
+      <h1><i class="ph-bold ph-student"></i> Không Gian Học Tập</h1>
+      <button class="btn-outline" type="button">
+        <i class="ph-bold ph-bell-ringing"></i> <span>Thông báo</span>
+      </button>
+    </header>
+
+    <main>
+      <div class="main-content">
+        <section class="progress-overview">
+          <h2><i class="ph-bold ph-chart-donut"></i> Tiến Độ Chung</h2>
+          <p>Bạn có 2 khóa học đang mở và 1 bài tập đến hạn tuần này. Cố lên nhé!</p>
+        </section>
+
+        <section>
+          <h2><i class="ph-bold ph-book-open-text"></i> Tiếp Tục Học</h2>
+          <div class="course-grid">
+            <article>
+              <h3>UX Writing Cơ Bản</h3>
+              <p>Bài 5 / 12</p>
+              <div class="progress-bar"><div class="fill" style="width: 40%"></div></div>
+              <button type="button">Học tiếp <i class="ph-bold ph-arrow-right"></i></button>
+            </article>
+            <article>
+              <h3>Design Systems</h3>
+              <p>Bài 3 / 8</p>
+              <div class="progress-bar"><div class="fill" style="width: 25%"></div></div>
+              <button type="button">Học tiếp <i class="ph-bold ph-arrow-right"></i></button>
+            </article>
+          </div>
+        </section>
+      </div>
+
+      <aside class="sidebar">
+        <section>
+          <h2><i class="ph-bold ph-calendar-check"></i> Việc Cần Làm</h2>
+          <ul class="task-list">
+            <li>
+              <i class="ph-bold ph-check-circle"></i>
+              <span>Quiz: Accessibility Basics</span>
+            </li>
+            <li>
+              <i class="ph-bold ph-check-circle"></i>
+              <span>Project: Travel App Wireframe</span>
+            </li>
+            <li>
+              <i class="ph-bold ph-check-circle"></i>
+              <span>Peer Review: Checkout Flow</span>
+            </li>
+          </ul>
+        </section>
+      </aside>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise 04 - Mobile Checkout</title>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css"/>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body id="page-checkout">
+    <header>
+      <a href="#" class="back-btn"><i class="ph-bold ph-caret-left"></i> Trở về</a>
+      <h1>Thanh Toán</h1>
+      <div style="width: 24px;"></div> </header>
+
+    <main>
+      <section class="delivery-card">
+        <h2><i class="ph-bold ph-map-pin"></i> Địa chỉ nhận hàng</h2>
+        <div class="address-box">
+          <p class="name">Đinh Tuấn Dũng - 0934275955</p>
+          <p class="address">123 Đường Lũng Đông - Hải An - Hải Phòng</p>
+        </div>
+        <button type="button" class="btn-text">Thay đổi</button>
+      </section>
+
+      <section class="order-items">
+        <h2><i class="ph-bold ph-shopping-bag"></i> Đơn hàng của bạn</h2>
+        
+        <article class="item">
+          <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=200&auto=format&fit=crop" alt="Tai nghe">
+          <div class="item-info">
+            <h3>Tai nghe Bluetooth Sony</h3>
+            <p>Số lượng: 1</p>
+            <p class="price">$79.00</p>
+          </div>
+        </article>
+
+        <article class="item">
+          <img src="https://flexhouse.vn/wp-content/uploads/2023/06/Gia-do-dien-thoai-hop-kim-nhom-toi-gian-MT600-11.jpg" alt="Giá đỡ">
+          <div class="item-info">
+            <h3>Giá đỡ điện thoại Nhôm</h3>
+            <p>Số lượng: 2</p>
+            <p class="price">$24.00</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="payment-methods">
+        <h2><i class="ph-bold ph-credit-card"></i> Phương thức thanh toán</h2>
+        <form>
+          <label class="pay-option">
+            <input type="radio" name="pay" checked />
+            <div class="pay-content">
+              <i class="ph-bold ph-credit-card"></i> Thẻ Tín Dụng
+            </div>
+          </label>
+          
+          <label class="pay-option">
+            <input type="radio" name="pay" />
+            <div class="pay-content">
+              <i class="ph-bold ph-device-mobile"></i> Ví Điện Tử (MoMo/ZaloPay)
+            </div>
+          </label>
+          
+          <label class="pay-option">
+            <input type="radio" name="pay" />
+            <div class="pay-content">
+              <i class="ph-bold ph-money"></i> Thanh toán khi nhận hàng (COD)
+            </div>
+          </label>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <div class="total-box">
+        <p class="label">Tổng thanh toán</p>
+        <p class="amount">$103.00</p>
+      </div>
+      <button type="button" class="btn-checkout">Đặt Hàng Ngay</button>
+    </footer>
+  </body>
+</html>

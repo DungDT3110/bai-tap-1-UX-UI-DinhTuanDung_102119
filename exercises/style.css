@@ -1,0 +1,542 @@
+/* Nhúng font từ Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+/* =======================================================
+   1. CSS VARIABLES (HỆ THỐNG BIẾN CHUẨN TRẺ TRUNG)
+   ======================================================= */
+:root {
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  /* Tông màu chuyển sắc (Gradient): Xanh dương nhạt -> Xanh lá nhạt */
+  --primary-gradient: linear-gradient(135deg, #38BDF8 0%, #34D399 100%);
+  
+  /* Gradient khi Hover (Đậm màu hơn một chút để tạo độ sâu) */
+  --primary-gradient-hover: linear-gradient(135deg, #0EA5E9 0%, #10B981 100%);
+  
+  /* Nền trang web ám một chút xíu xanh bạc hà cực nhạt cho tone-sur-tone */
+  --bg-main: #F0FDFA; 
+  --card-bg: #FFFFFF;
+  
+  --text-main: #0F172A;     /* Đen xám đậm để dễ đọc */
+  --text-muted: #64748B;    /* Xám nhạt cho text phụ */
+  --border: #E2E8F0;
+  
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+
+  /* Góc bo tròn to hơn (Bubbly/Friendly UI) */
+  --radius-sm: 12px;
+  --radius-md: 24px;
+  
+  /* Đổ bóng (Shadow) có màu hòa quyện với màu chủ đạo */
+  --shadow-sm: 0 4px 6px -1px rgba(52, 211, 153, 0.1);
+  --shadow-md: 0 10px 20px rgba(56, 189, 248, 0.15);
+  --shadow-hover: 0 15px 25px rgba(52, 211, 153, 0.3); /* Bóng to và sáng hơn khi hover */
+}
+
+/* =======================================================
+   2. RESET & GLOBAL STYLES (ÁP DỤNG FONT)
+   ======================================================= */
+* {
+  margin: 0; padding: 0; box-sizing: border-box;
+}
+
+body {
+  /* Ép toàn bộ web dùng font văn bản mặc định */
+  font-family: var(--font-body);
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.6;
+  padding: var(--space-md);
+  padding-bottom: 80px;
+}
+
+/* Áp dụng Font Tiêu đề cho các thẻ H */
+h1, h2, h3 { 
+  font-family: var(--font-heading); 
+}
+
+h1 { font-size: 28px; margin-bottom: var(--space-md); font-weight: 800; letter-spacing: -0.5px; }
+h2 { font-size: 20px; margin-bottom: var(--space-sm); margin-top: var(--space-lg); font-weight: 700; letter-spacing: -0.3px; }
+h3 { font-size: 16px; font-weight: 700; }
+
+/* =======================================================
+   HOẠT ẢNH NHẸ CHO NÚT BẤM (BUTTONS) & THẺ (CARDS)
+   ======================================================= */
+button {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  background: var(--primary-gradient);
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 50px; /* Nút bo tròn hình viên thuốc (Pill shape) */
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  
+  /* Thiết lập Transition cho hoạt ảnh mượt mà */
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Hiệu ứng khi lướt chuột qua Nút: Nổi lên và sáng bóng hơn */
+button:hover {
+  background: var(--primary-gradient-hover);
+  transform: translateY(-3px); /* Nhấc nút lên 3px */
+  box-shadow: var(--shadow-hover);
+}
+
+/* Hiệu ứng khi click Nút: Lún xuống */
+button:active {
+  transform: translateY(1px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Hiệu ứng cho các Khối (Cards) */
+section, article, aside {
+  background-color: var(--card-bg);
+  padding: var(--space-lg);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  margin-bottom: var(--space-md);
+  border: 1px solid rgba(255, 255, 255, 0.5); /* Viền trắng nhạt tạo cảm giác Glassmorphism */
+  
+  /* Thêm hoạt ảnh nổi nhẹ cho Card */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+article:hover, section:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* =======================================================
+   3. EXERCISE TWEAKS (Các phần layout giữ nguyên như cũ)
+   ======================================================= */
+#page-home header { display: flex; justify-content: space-between; align-items: center; }
+#page-home article { display: flex; flex-direction: column; align-items: flex-start; }
+#page-home nav {
+  position: fixed; bottom: 0; left: 0; width: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px); /* Hiệu ứng mờ nền chuẩn iOS */
+  display: flex; justify-content: space-around; padding: 16px 0;
+  box-shadow: 0 -4px 10px rgba(0,0,0,0.03);
+}
+
+@media (min-width: 768px) {
+  #page-dashboard main { display: grid; grid-template-columns: 2fr 1fr; gap: var(--space-lg); }
+}
+#page-dashboard ul { list-style: none; }
+#page-dashboard li { padding: 12px; border-bottom: 1px dashed var(--border); }
+
+@media (min-width: 1024px) {
+  #page-analytics main { display: grid; grid-template-columns: 250px 1fr; gap: var(--space-lg); }
+  #page-analytics section:nth-of-type(1) { display: flex; gap: var(--space-md); }
+  #page-analytics section:nth-of-type(1) article { flex: 1; }
+}
+#page-analytics table { width: 100%; border-collapse: collapse; margin-top: var(--space-sm); }
+#page-analytics th, #page-analytics td { padding: 12px; text-align: left; border-bottom: 1px solid var(--border); }
+
+#page-checkout footer {
+  position: fixed; bottom: 0; left: 0; width: 100%;
+  background: var(--card-bg); padding: var(--space-md) var(--space-lg);
+  display: flex; justify-content: space-between; align-items: center;
+  box-shadow: 0 -10px 20px rgba(56, 189, 248, 0.1);
+  border-top-left-radius: var(--radius-md);
+  border-top-right-radius: var(--radius-md);
+}
+#page-checkout footer p { font-family: var(--font-heading); font-size: 20px; font-weight: 800; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 0; }
+#page-checkout label { display: block; padding: 16px; border: 2px solid var(--border); border-radius: var(--radius-sm); margin-bottom: var(--space-sm); cursor: pointer; transition: all 0.2s; }
+#page-checkout label:hover { border-color: #38BDF8; background-color: #F0FDFA; }
+
+#page-settings label { display: block; font-weight: 700; font-size: 14px; margin-top: 16px; color: var(--text-main); }
+#page-settings input[type="text"], #page-settings input[type="email"], #page-settings select {
+  width: 100%; padding: 14px; border: 2px solid var(--border); border-radius: var(--radius-sm); margin-top: 6px; outline: none; transition: border 0.3s; background: #F8FAFC;
+}
+#page-settings input:focus, #page-settings select:focus { border-color: #34D399; background: #fff; box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.15); }
+
+/* Công tắc iOS xịn xò có màu Gradient */
+#page-settings input[type="checkbox"] {
+  appearance: none; -webkit-appearance: none;
+  width: 50px; height: 28px; background: var(--border); border-radius: 30px; position: relative; outline: none; cursor: pointer; vertical-align: middle; margin-right: 12px; transition: background 0.3s;
+}
+#page-settings input[type="checkbox"]::after {
+  content: ''; position: absolute; top: 3px; left: 3px; width: 22px; height: 22px; background: white; border-radius: 50%; transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1); box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+#page-settings input[type="checkbox"]:checked { background: var(--primary-gradient); }
+#page-settings input[type="checkbox"]:checked::after { transform: translateX(22px); }
+
+
+/* =======================================================
+   NÂNG CẤP ĐA CHỦ ĐỀ (MULTI-THEME) CHO TỪNG TRANG
+   ======================================================= */
+
+/* 1. Trang Home: Tông Cam Đào Năng Động */
+#page-home {
+  --primary-gradient: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
+  --primary-gradient-hover: linear-gradient(135deg, #FA5252 0%, #FF7F3F 100%);
+  --bg-main: #FFF5F5; /* Nền cam sữa */
+  --card-bg: rgba(255, 255, 255, 0.85); /* Hiệu ứng kính mờ */
+}
+
+/* 2. Trang Dashboard: Tông Tím Sáng Tạo */
+#page-dashboard {
+  --primary-gradient: linear-gradient(135deg, #8B5CF6 0%, #D946EF 100%);
+  --bg-main: #FAF5FF; /* Nền tím nhạt */
+}
+
+/* 3. Trang Analytics: DARK MODE SIÊU NGẦU */
+#page-analytics {
+  --primary-gradient: linear-gradient(135deg, #06B6D4 0%, #3B82F6 100%);
+  --bg-main: #0F172A; /* Nền đen xanh đậm */
+  --card-bg: #1E293B; /* Khối card xám tối */
+  --text-main: #F8FAFC; /* Chữ màu trắng */
+  --text-muted: #94A3B8; /* Chữ phụ xám sáng */
+  --border: #334155;
+}
+/* Sửa lại màu viền bảng cho Dark mode */
+#page-analytics th, #page-analytics td { border-bottom: 1px solid var(--border); }
+
+/* 4. Trang Checkout: Giữ tông Xanh lá / Mint của bạn */
+#page-checkout {
+  --primary-gradient: linear-gradient(135deg, #10B981 0%, #34D399 100%);
+  --bg-main: #ECFDF5; 
+}
+
+/* 5. Trang Settings: Đen trắng tối giản */
+#page-settings {
+  --primary-gradient: linear-gradient(135deg, #334155 0%, #0F172A 100%);
+  --bg-main: #F8FAFC;
+}
+
+
+/* =======================================================
+   EXERCISE 01: CITY EXPLORER (GLASSMORPHISM)
+   ======================================================= */
+/* 1. Đặt ảnh nền toàn màn hình cho riêng trang 1 */
+#page-home {
+  background-image: url('https://statics.vinpearl.com/vinwonders-nam-hoi-an-1_1632658476.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  
+  /* Đổi hệ màu riêng cho trang này để nổi trên nền tối */
+  --text-main: #FFFFFF; 
+  --card-bg: rgba(255, 255, 255, 0.15); /* Kính mờ đục */
+  --border: rgba(255, 255, 255, 0.2);
+}
+
+
+
+#page-home header h1, #page-home section h2 { 
+  color: #fff; 
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5); 
+}
+
+/* Bỏ nền trắng mặc định của section */
+#page-home section { background: transparent; box-shadow: none; border: none; padding: 0; }
+
+/* 3. Hiệu ứng kính mờ (Glassmorphism) cho các thẻ Địa điểm */
+#page-home article {
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);        /* Làm mờ cảnh đằng sau thẻ */
+  -webkit-backdrop-filter: blur(16px);/* Hỗ trợ Safari */
+  border: 1px solid var(--border);
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;     /* Chữ bên trái, nút bên phải */
+  align-items: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+#page-home article h3 { color: #fff; margin-bottom: 4px; font-size: 18px; }
+#page-home article p { margin: 0; color: rgba(255,255,255,0.8); }
+
+/* Nút bấm trong thẻ Article làm nhỏ lại cho tinh tế */
+#page-home article button { padding: 8px 16px; font-size: 13px; }
+
+/* 4. Thanh Navigation kính mờ màu tối ở đáy màn hình */
+#page-home nav {
+  background: rgba(15, 23, 42, 0.65); /* Kính đen */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding: 12px 0 24px 0; /* Đệm dưới to hơn cho các máy có tai thỏ */
+}
+
+/* Căn chỉnh Icon và Chữ dọc nhau */
+#page-home nav a {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  color: #94A3B8; font-size: 12px; transition: color 0.3s;
+}
+
+#page-home nav a i { font-size: 24px; }
+
+/* Hiệu ứng sáng đèn màu gradient cho thẻ đang chọn (active) */
+#page-home nav a.active, #page-home nav a:hover { 
+  color: #38BDF8; 
+  text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+}
+
+/* =======================================================
+   EXERCISE 02: TABLET DASHBOARD (TÍM SÁNG TẠO)
+   ======================================================= */
+/* 1. Ghi đè biến màu sắc riêng cho Trang 2 */
+#page-dashboard {
+  --primary-gradient: linear-gradient(135deg, #8B5CF6 0%, #D946EF 100%);
+  --primary-gradient-hover: linear-gradient(135deg, #7C3AED 0%, #C026D3 100%);
+  --bg-main: #FAF5FF; /* Nền tím siêu nhạt */
+  
+  /* Đổi màu bóng đổ sang ánh tím */
+  --shadow-sm: 0 4px 6px -1px rgba(139, 92, 246, 0.1);
+  --shadow-md: 0 10px 20px rgba(139, 92, 246, 0.15);
+  --shadow-hover: 0 15px 25px rgba(217, 70, 239, 0.25);
+}
+
+#page-dashboard header {
+  display: flex; justify-content: space-between; align-items: center;
+}
+#page-dashboard header h1 { display: flex; align-items: center; gap: 8px; color: #4C1D95; }
+#page-dashboard h2 { display: flex; align-items: center; gap: 8px; color: #5B21B6; }
+
+/* Nút thông báo trên Header (Màu viền thay vì Gradient) */
+#page-dashboard button.btn-outline {
+  background: #fff; color: #8B5CF6; 
+  display: flex; align-items: center; gap: 8px;
+}
+#page-dashboard button.btn-outline:hover { background: #F3E8FF; transform: none; }
+
+/* 2. BỐ CỤC CHIA CỘT (GRID LAYOUT CHO TABLET) */
+@media (min-width: 768px) {
+  #page-dashboard main {
+    display: grid;
+    grid-template-columns: 1.8fr 1fr; /* Cột trái to gấp gần 2 lần cột phải */
+    gap: var(--space-lg);
+    align-items: start; /* Giữ cho cột phải không bị kéo giãn xuống đáy */
+  }
+  
+  /* Chia 2 cột nhỏ bên trong phần "Tiếp Tục Học" */
+  #page-dashboard .course-grid { 
+    display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); 
+  }
+}
+
+#page-dashboard .course-grid button { display: flex; align-items: center; gap: 8px; font-size: 14px; }
+
+/* 3. Vẽ Thanh Tiến Độ (Progress Bar) */
+#page-dashboard .progress-bar {
+  width: 100%; height: 8px; background: #E9D5FF;
+  border-radius: 10px; margin-bottom: 20px; overflow: hidden;
+}
+#page-dashboard .progress-bar .fill {
+  height: 100%; background: var(--primary-gradient); border-radius: 10px;
+}
+
+/* 4. Làm đẹp Danh sách Việc cần làm (Task List) */
+#page-dashboard .task-list { list-style: none; }
+#page-dashboard .task-list li {
+  display: flex; align-items: center; gap: 12px;
+  padding: 14px; margin-bottom: 12px;
+  background: #fff; border: 2px solid transparent; border-radius: 12px;
+  color: #6D28D9; font-weight: 600; cursor: pointer; transition: all 0.2s;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Hiệu ứng trượt nhẹ sang phải khi Hover vào Task */
+#page-dashboard .task-list li:hover {
+  transform: translateX(6px); 
+  border-color: #D946EF; 
+  box-shadow: var(--shadow-hover);
+}
+#page-dashboard .task-list i { font-size: 22px; color: #D946EF; }
+
+/* =======================================================
+   EXERCISE 03: WEB ANALYTICS (DARK MODE CHUYÊN NGHIỆP)
+   ======================================================= */
+/* 1. Thiết lập màu Dark Mode cho riêng ID page-analytics */
+#page-analytics {
+  --primary-gradient: linear-gradient(135deg, #06B6D4 0%, #3B82F6 100%);
+  --primary-gradient-hover: linear-gradient(135deg, #0891B2 0%, #2563EB 100%);
+  --bg-main: #0F172A; /* Nền xanh đen cực sâu */
+  --card-bg: #1E293B; /* Khối thẻ màu xám than */
+  --text-main: #F8FAFC; /* Chữ trắng sáng */
+  --text-muted: #94A3B8; /* Chữ phụ xám nhạt */
+  --border: #334155;
+  --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.4); /* Bóng đen đậm */
+}
+
+/* 2. Bố cục Grid cho Web/Desktop */
+#page-analytics header { display: flex; justify-content: space-between; align-items: center; }
+#page-analytics header h1 { display: flex; align-items: center; gap: 12px; color: #38BDF8; }
+#page-analytics header button { display: flex; align-items: center; gap: 8px; }
+
+@media (min-width: 1024px) {
+  #page-analytics main { display: grid; grid-template-columns: 280px 1fr; gap: var(--space-lg); align-items: start; }
+  #page-analytics .metrics-grid { display: flex; gap: var(--space-md); }
+  #page-analytics .metrics-grid article { flex: 1; margin-bottom: 0; }
+}
+
+/* 3. Tinh chỉnh Typography và Khối Số Liệu */
+#page-analytics h2 i, #page-analytics h3 i { color: #06B6D4; margin-right: 8px; }
+
+#page-analytics .metric-value { 
+  font-size: 32px; font-weight: 800; color: #fff; margin-top: 16px; 
+  font-family: var(--font-heading);
+  display: flex; align-items: center; justify-content: space-between;
+}
+
+/* Các nhãn (Trend) tăng/giảm */
+#page-analytics .trend { font-size: 14px; padding: 4px 10px; border-radius: 20px; display: flex; align-items: center; gap: 4px; }
+#page-analytics .trend.up { background: rgba(52, 211, 153, 0.1); color: #34D399; }
+#page-analytics .trend.down { background: rgba(248, 113, 113, 0.1); color: #F87171; }
+
+/* 4. Tinh chỉnh Ô Nhập liệu (Select) trong Dark Mode */
+#page-analytics label { display: block; margin-top: 16px; margin-bottom: 8px; font-weight: 600; color: var(--text-main); }
+#page-analytics select {
+  width: 100%; padding: 14px; border-radius: var(--radius-sm);
+  background: #0F172A; color: #F8FAFC; border: 2px solid var(--border);
+  outline: none; transition: all 0.3s;
+}
+#page-analytics select:focus { border-color: #38BDF8; box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.15); }
+
+/* 5. Định dạng Bảng (Table) chuẩn UI Data */
+#page-analytics table { width: 100%; border-collapse: separate; border-spacing: 0; margin-top: 16px; }
+#page-analytics th, #page-analytics td { padding: 16px; text-align: left; border-bottom: 1px solid var(--border); }
+#page-analytics th { color: var(--text-muted); font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
+
+/* Hiệu ứng vệt sáng trượt ngang khi hover vào hàng trong bảng */
+#page-analytics tbody tr { transition: background 0.2s; cursor: pointer; }
+#page-analytics tbody tr:hover { background: rgba(255, 255, 255, 0.05); }
+
+/* Badge cho Tỉ lệ chuyển đổi trong bảng */
+#page-analytics .badge { padding: 4px 10px; border-radius: 6px; background: #334155; font-weight: bold; font-size: 14px; }
+#page-analytics .badge.highlight { background: rgba(56, 189, 248, 0.2); color: #38BDF8; }
+#page-analytics .badge.low { background: rgba(248, 113, 113, 0.2); color: #F87171; }
+
+
+/* =======================================================
+   EXERCISE 04: MOBILE CHECKOUT (XANH MINT TIN CẬY)
+   ======================================================= */
+/* 1. Thiết lập màu Xanh Mint cho trang Thanh toán */
+#page-checkout {
+  --primary-gradient: linear-gradient(135deg, #10B981 0%, #34D399 100%);
+  --primary-gradient-hover: linear-gradient(135deg, #059669 0%, #10B981 100%);
+  --bg-main: #F0FDF4; /* Nền xanh mint cực nhạt */
+  --shadow-hover: 0 10px 20px rgba(16, 185, 129, 0.2);
+}
+
+#page-checkout header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+#page-checkout header h1 { margin: 0; font-size: 20px; }
+#page-checkout .back-btn { display: flex; align-items: center; gap: 4px; color: var(--text-main); font-weight: bold; }
+
+#page-checkout h2 { display: flex; align-items: center; gap: 8px; color: #065F46; font-size: 16px; border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 16px; }
+
+/* 2. Style cho Danh sách Sản phẩm */
+#page-checkout .item { display: flex; gap: 16px; align-items: center; flex-direction: row; padding: 12px 0; border-bottom: 1px dashed var(--border); box-shadow: none; margin: 0; border-radius: 0; }
+#page-checkout .item:last-child { border-bottom: none; }
+#page-checkout .item img { width: 70px; height: 70px; object-fit: cover; border-radius: 12px; box-shadow: var(--shadow-sm); }
+#page-checkout .item-info h3 { margin-bottom: 4px; font-size: 15px; }
+#page-checkout .item-info .price { font-weight: 800; color: #10B981; font-size: 16px; margin: 0; }
+
+/* 3. Style Nâng cao cho Form Thanh toán (Custom Radio Buttons) */
+#page-checkout .pay-option { display: block; margin-bottom: 12px; cursor: pointer; }
+#page-checkout .pay-option input { display: none; /* Ẩn dấu chấm tròn mặc định đi */ }
+
+#page-checkout .pay-content {
+  display: flex; align-items: center; gap: 12px;
+  padding: 16px; border: 2px solid var(--border); border-radius: 12px;
+  font-weight: 600; color: var(--text-muted); transition: all 0.2s;
+  background: #fff;
+}
+#page-checkout .pay-content i { font-size: 24px; color: #9CA3AF; }
+
+/* Hiệu ứng khi được CHỌN (Checked) */
+#page-checkout .pay-option input:checked + .pay-content {
+  border-color: #10B981;
+  background: #ECFDF5;
+  color: #065F46;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.1);
+}
+#page-checkout .pay-option input:checked + .pay-content i { color: #10B981; }
+
+/* 4. Footer ghim đáy màn hình */
+#page-checkout footer {
+  position: fixed; bottom: 0; left: 0; width: 100%;
+  background: var(--card-bg); padding: 16px 24px;
+  display: flex; justify-content: space-between; align-items: center;
+  box-shadow: 0 -10px 20px rgba(0,0,0,0.05);
+  border-top-left-radius: var(--radius-md); border-top-right-radius: var(--radius-md);
+  z-index: 10;
+}
+#page-checkout .total-box .label { font-size: 13px; margin: 0; }
+#page-checkout .total-box .amount { font-size: 22px; font-weight: 800; color: #10B981; margin: 0; }
+#page-checkout .btn-checkout { font-size: 16px; padding: 14px 28px; }
+
+
+/* =======================================================
+   EXERCISE 05: PROFILE SETTINGS (TỐI GIẢN & THANH LỊCH)
+   ======================================================= */
+/* 1. Thiết lập màu sắc Tối giản (Minimalist) */
+#page-settings {
+  --primary-gradient: linear-gradient(135deg, #0F172A 0%, #334155 100%); /* Đen/Xám đậm */
+  --primary-gradient-hover: linear-gradient(135deg, #000000 0%, #1E293B 100%);
+  --bg-main: #F1F5F9; /* Xám trắng cực nhạt */
+  --card-bg: #FFFFFF;
+  --text-main: #0F172A;
+  --border: #E2E8F0;
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.02);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05); /* Bóng đổ rất mềm và nhạt */
+}
+
+/* Căn giữa Form cho màn hình to */
+#page-settings .settings-form { max-width: 600px; margin: 0 auto; }
+#page-settings header { max-width: 600px; margin: 0 auto 24px auto; }
+#page-settings h2 { display: flex; align-items: center; gap: 8px; font-size: 16px; border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 20px; color: #475569; }
+
+/* 2. Thiết kế khối Avatar */
+#page-settings .user-profile { display: flex; align-items: center; gap: 16px; margin-top: 24px; padding: 16px; background: var(--card-bg); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); }
+#page-settings .user-profile img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; }
+#page-settings .user-profile .name { font-size: 18px; font-weight: 800; color: var(--text-main); margin: 0; }
+#page-settings .user-profile .email { font-size: 14px; color: var(--text-muted); margin: 0; }
+
+/* 3. Tối ưu Ô nhập liệu (Input) */
+#page-settings input[type="text"], #page-settings input[type="email"], #page-settings select {
+  width: 100%; padding: 14px; border: 1.5px solid var(--border); border-radius: 10px;
+  background: #F8FAFC; color: var(--text-main); font-weight: 500; outline: none; transition: all 0.2s;
+}
+#page-settings input:focus, #page-settings select:focus {
+  background: #fff; border-color: #0F172A; box-shadow: 0 0 0 4px rgba(15, 23, 42, 0.1);
+}
+
+/* 4. TẠO CÔNG TẮC GẠT (TOGGLE SWITCH) - TRỌNG TÂM CỦA UX */
+#page-settings .toggle-label {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 12px 0; border-bottom: 1px solid var(--border); cursor: pointer; margin: 0; font-weight: 600;
+}
+#page-settings .toggle-label:last-child { border-bottom: none; }
+
+#page-settings input[type="checkbox"] {
+  appearance: none; -webkit-appearance: none;
+  width: 50px; height: 28px; background: #CBD5E1; border-radius: 30px;
+  position: relative; outline: none; cursor: pointer; transition: background 0.3s ease;
+}
+/* Cục tròn của công tắc */
+#page-settings input[type="checkbox"]::after {
+  content: ''; position: absolute; top: 2px; left: 2px; width: 24px; height: 24px;
+  background: white; border-radius: 50%; box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1); /* Hiệu ứng nảy chuẩn Apple */
+}
+/* Khi được bật (Checked) */
+#page-settings input[type="checkbox"]:checked { background: #10B981; /* Bật lên màu xanh lá (hoặc có thể dùng màu Đen) */ }
+#page-settings input[type="checkbox"]:checked::after { transform: translateX(22px); }
+
+/* 5. Phân cấp Nút bấm (Button Hierarchy) */
+#page-settings .btn-group-vertical { display: flex; flex-direction: column; gap: 12px; }
+#page-settings .btn-outline { background: transparent; color: var(--text-main); border: 1.5px solid var(--border); width: 100%; box-shadow: none; font-weight: 700; }
+#page-settings .btn-outline:hover { background: #F1F5F9; border-color: #CBD5E1; }
+
+#page-settings .form-actions { display: flex; gap: 12px; background: transparent; box-shadow: none; padding: 0; margin-top: 32px; }
+#page-settings .btn-secondary { flex: 1; background: #E2E8F0; color: #475569; box-shadow: none; }
+#page-settings .btn-secondary:hover { background: #CBD5E1; transform: none; }
+#page-settings .btn-primary { flex: 2; background: var(--primary-gradient); }

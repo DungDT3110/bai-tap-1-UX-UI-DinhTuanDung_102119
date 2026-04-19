@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise 03 - Web Analytics</title>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css"/>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body id="page-analytics">
+    <header>
+      <h1><i class="ph-bold ph-chart-line-up"></i> Không Gian Phân Tích</h1>
+      <button type="button"><i class="ph-bold ph-download-simple"></i> Xuất Dữ Liệu</button>
+    </header>
+
+    <main>
+      <aside class="sidebar-filters">
+        <h2><i class="ph-bold ph-funnel"></i> Bộ Lọc</h2>
+        <form>
+          <label for="range">Khoảng thời gian</label>
+          <select id="range">
+            <option>7 ngày qua</option>
+            <option>30 ngày qua</option>
+            <option>90 ngày qua</option>
+          </select>
+
+          <label for="channel">Kênh truy cập</label>
+          <select id="channel">
+            <option>Tất cả các kênh</option>
+            <option>Tìm kiếm (Organic)</option>
+            <option>Quảng cáo (Paid)</option>
+          </select>
+        </form>
+      </aside>
+
+      <div class="analytics-content">
+        <section class="metrics-grid">
+          <article>
+            <h3><i class="ph-bold ph-users"></i> Lượt Truy Cập</h3>
+            <p class="metric-value">42,100 <span class="trend up"><i class="ph-bold ph-trend-up"></i> 12%</span></p>
+          </article>
+          <article>
+            <h3><i class="ph-bold ph-target"></i> Tỉ Lệ Chuyển Đổi</h3>
+            <p class="metric-value">3.8% <span class="trend up"><i class="ph-bold ph-trend-up"></i> 0.5%</span></p>
+          </article>
+          <article>
+            <h3><i class="ph-bold ph-clock-counter-clockwise"></i> Tỉ Lệ Thoát</h3>
+            <p class="metric-value">28% <span class="trend down"><i class="ph-bold ph-trend-down"></i> 2%</span></p>
+          </article>
+        </section>
+
+        <section class="table-section">
+          <h2><i class="ph-bold ph-browser"></i> Trang Truy Cập Nhiều Nhất</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Trang</th>
+                <th>Lượt xem</th>
+                <th>Chuyển đổi</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>/trang-chu</td>
+                <td>18,400</td>
+                <td><span class="badge">4.2%</span></td>
+              </tr>
+              <tr>
+                <td>/bang-gia</td>
+                <td>8,120</td>
+                <td><span class="badge highlight">6.1%</span></td>
+              </tr>
+              <tr>
+                <td>/blog</td>
+                <td>5,900</td>
+                <td><span class="badge low">1.9%</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
